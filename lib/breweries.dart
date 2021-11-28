@@ -40,7 +40,7 @@ class BreweriesPage extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.menu_rounded),
                   onPressed: () {
-                     _scaffoldKey.currentState!.openDrawer();
+                    _scaffoldKey.currentState!.openDrawer();
                   },
                 ),
                 const SizedBox(width: 20),
@@ -139,11 +139,13 @@ class _BreweryListTileState extends State<BreweryListTile> {
     return ListTile(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => MapPage(
-                      brewery: widget.brewery,
-                    )));
+          context,
+          MaterialPageRoute(
+            builder: (context) => MapPage(
+              brewery: widget.brewery,
+            ),
+          ),
+        );
       },
       title: Text(
         "${widget.brewery["name"]} (${widget.brewery["brewery_type"]})",

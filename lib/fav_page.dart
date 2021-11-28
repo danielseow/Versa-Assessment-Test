@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'map_page.dart';
 import 'provider.dart';
 
 class FavouritePage extends StatelessWidget {
@@ -42,8 +43,18 @@ class FavouritePage extends StatelessWidget {
                   itemCount: breweriesListsProvider.getFavBreweriesLists().length,
                   itemBuilder: (context, index) {
                     // log(breweriesListsProvider.getFavBreweriesLists().toString());
-            
+
                     return ListTile(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MapPage(
+                              brewery: value.getFavBreweriesLists()[index],
+                            ),
+                          ),
+                        );
+                      },
                       title: Text(
                         "${value.getFavBreweriesLists()[index]["name"]} (${value.getFavBreweriesLists()[index]["brewery_type"]})",
                       ),
